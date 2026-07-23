@@ -6,324 +6,435 @@
 <title>Braun Tech Solutions — IT Consulting &amp; Software Development, Belize City</title>
 <meta name="description" content="IT consulting, networks, and custom software for businesses in Belize. On-site in Belize City, remote countrywide. Call +501 615-3539.">
 <link rel="canonical" href="https://brauntech.bz/">
+<meta name="theme-color" content="#04222A">
 
 <meta property="og:title" content="Braun Tech Solutions — IT Consulting &amp; Software Development">
 <meta property="og:description" content="IT consulting, networks, and custom software for businesses in Belize.">
 <meta property="og:url" content="https://brauntech.bz/">
 <meta property="og:type" content="website">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --ink:      #0B2830;
-    --slate:    #39494F;
-    --mute:     #6E7E83;
-    --hair:     #DCE3E2;
-    --paper:    #FBFCFB;
-    --amber:    #B36612;
-    --serif:    Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --sans:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --mono:     ui-monospace, "SF Mono", Consolas, Monaco, "Courier New", monospace;
-  }
+:root{
+  /* reef palette — pulled from the water off the Belize coast, not from a UI kit */
+  --deep:    #04222A;   /* deep sea, the ink */
+  --harbour: #0B3C47;   /* mid water */
+  --teal:    #0D7377;   /* seagrass */
+  --aqua:    #2EC4B6;   /* shallow reef */
+  --glow:    #7BE0D3;   /* sunlit shallow */
+  --mango:   #FF8A3D;   /* the one hot accent */
+  --coral:   #FF5D73;
+  --sun:     #FFC94A;
+  --paper:   #F1FAF8;
+  --card:    #FFFFFF;
+  --slate:   #3D5761;
+  --mute:    #6E8A92;
+  --hair:    #DCEDEA;
 
-  * { box-sizing: border-box; }
+  --display: "Fraunces", Georgia, serif;
+  --sans:    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
 
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { animation: none !important; transition: none !important; }
-  }
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--deep);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
 
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+.wrap{max-width:940px;margin:0 auto;padding:0 24px;}
+a{color:inherit;}
+a:focus-visible{outline:2.5px solid var(--mango);outline-offset:3px;border-radius:3px;}
 
-  a { color: var(--ink); }
-  a:focus-visible {
-    outline: 2px solid var(--amber);
-    outline-offset: 3px;
-  }
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(1100px 520px at 12% -10%, rgba(46,196,182,.34), transparent 62%),
+    radial-gradient(760px 460px at 92% 8%,  rgba(255,138,61,.24), transparent 60%),
+    radial-gradient(900px 620px at 60% 110%, rgba(123,224,211,.20), transparent 62%),
+    linear-gradient(168deg, var(--deep) 0%, var(--harbour) 100%);
+  color:#fff;
+  padding:0 0 96px;
+}
 
-  /* ---- the cursor block: the one motif, carried from the email signature ---- */
-  .cursor {
-    display: inline-block;
-    width: 3px;
-    height: 0.95em;
-    background: var(--amber);
-    margin-right: 10px;
-    vertical-align: -1px;
-  }
+/* the signature: a slow reef-light drift across the hero */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(420px 300px at 30% 40%, rgba(123,224,211,.22), transparent 65%),
+    radial-gradient(360px 260px at 70% 60%, rgba(255,201,74,.14), transparent 65%);
+  filter:blur(14px);
+  animation:drift 26s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes drift{
+  from{transform:translate3d(-3%,-2%,0) scale(1);}
+  to  {transform:translate3d(4%,3%,0)  scale(1.12);}
+}
 
-  /* ---------------- header ---------------- */
-  header { padding: 72px 0 0; }
+.hero .wrap{position:relative;z-index:1;}
 
-  .mark {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 56px;
-  }
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:26px 0 0;flex-wrap:wrap;
+}
 
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(30px, 6.5vw, 42px);
-    font-weight: 700;
-    line-height: 1.18;
-    letter-spacing: -0.015em;
-    margin: 0 0 20px;
-  }
+.mark{
+  font-family:var(--mono);font-weight:700;font-size:13.5px;
+  letter-spacing:.02em;text-decoration:none;color:#fff;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.mark i{
+  width:4px;height:15px;background:var(--mango);
+  border-radius:1px;display:inline-block;
+  box-shadow:0 0 12px rgba(255,138,61,.65);
+}
 
-  .lede {
-    font-size: clamp(17px, 2.4vw, 19px);
-    color: var(--slate);
-    margin: 0 0 36px;
-    max-width: 34em;
-  }
+.status{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--glow);
+  background:rgba(123,224,211,.10);
+  border:1px solid rgba(123,224,211,.28);
+  padding:7px 13px;border-radius:100px;
+}
+.dot{
+  width:7px;height:7px;border-radius:50%;background:var(--glow);
+  box-shadow:0 0 0 0 rgba(123,224,211,.7);
+  animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{
+  0%  {box-shadow:0 0 0 0   rgba(123,224,211,.55);}
+  70% {box-shadow:0 0 0 9px rgba(123,224,211,0);}
+  100%{box-shadow:0 0 0 0   rgba(123,224,211,0);}
+}
 
-  /* ---------------- actions ---------------- */
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
+h1{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(34px,6.4vw,60px);
+  line-height:1.06;
+  letter-spacing:-.022em;
+  margin:64px 0 22px;
+  max-width:15ch;
+}
+h1 em{
+  font-style:normal;
+  background:linear-gradient(96deg,var(--glow) 0%,var(--sun) 55%,var(--mango) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
 
-  .btn {
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 12px 20px;
-    border: 1px solid var(--ink);
-    background: var(--ink);
-    color: #FFFFFF;
-    border-radius: 2px;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-  .btn:hover { background: #143B45; }
+.lede{
+  font-size:clamp(17px,2.1vw,19.5px);
+  color:rgba(255,255,255,.82);
+  max-width:46ch;margin:0 0 38px;
+}
 
-  .btn.ghost {
-    background: transparent;
-    color: var(--ink);
-    border-color: var(--hair);
-  }
-  .btn.ghost:hover { border-color: var(--ink); }
+.actions{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:26px;}
 
-  .avail {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--mute);
-    margin: 0 0 76px;
-  }
+.btn{
+  font-family:var(--sans);font-size:15.5px;font-weight:700;
+  text-decoration:none;padding:15px 26px;border-radius:100px;
+  display:inline-flex;align-items:center;gap:9px;
+  transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+}
+.btn-primary{
+  background:linear-gradient(96deg,var(--mango),#FF6B3D);
+  color:#26130A;
+  box-shadow:0 10px 26px -10px rgba(255,138,61,.85);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(255,138,61,.95);}
 
-  /* ---------------- sections ---------------- */
-  section { padding-bottom: 68px; }
+.btn-ghost{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.24);
+  color:#fff;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.15);transform:translateY(-2px);}
 
-  h2 {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--ink);
-    margin: 0 0 28px;
-  }
+.avail{
+  font-family:var(--mono);font-size:12.5px;
+  color:rgba(255,255,255,.6);margin:0;
+}
 
-  /* services as a typed spec sheet, not icon cards */
-  .spec { border-top: 1px solid var(--hair); }
+/* wave into the light */
+.wave{display:block;width:100%;height:auto;margin-top:-1px;}
 
-  .row {
-    display: grid;
-    grid-template-columns: 190px 1fr;
-    gap: 24px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--hair);
-  }
+/* ============ SECTIONS ============ */
+main{padding-top:4px;}
+section{padding:70px 0 12px;}
 
-  .row dt {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--ink);
-    margin: 0;
-  }
+.eyebrow{
+  font-family:var(--mono);font-size:11.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--teal);
+  display:flex;align-items:center;gap:10px;margin:0 0 10px;
+}
+.eyebrow::before{
+  content:"";width:22px;height:3px;border-radius:2px;
+  background:linear-gradient(90deg,var(--aqua),var(--mango));
+}
 
-  .row dd {
-    margin: 0;
-    font-size: 15.5px;
-    color: var(--slate);
-    line-height: 1.6;
-  }
+h2{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(25px,3.6vw,34px);
+  letter-spacing:-.018em;line-height:1.2;
+  margin:0 0 34px;
+}
 
-  @media (max-width: 560px) {
-    .row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
-  }
+/* --- service cards --- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(258px,1fr));
+  gap:16px;
+}
 
-  .prose p {
-    color: var(--slate);
-    font-size: 16.5px;
-    margin: 0 0 18px;
-    max-width: 36em;
-  }
-  .prose p:last-child { margin-bottom: 0; }
-  .prose strong { color: var(--ink); }
+.card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--hair);
+  border-radius:16px;
+  padding:26px 24px 24px;
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card::before{
+  content:"";position:absolute;left:0;top:0;height:100%;width:4px;
+  background:var(--c);
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 34px -20px rgba(4,34,42,.42);
+}
+.card h3{
+  font-family:var(--sans);font-size:16.5px;font-weight:700;
+  margin:0 0 8px;color:var(--deep);letter-spacing:-.01em;
+}
+.card p{margin:0;font-size:14.8px;color:var(--slate);line-height:1.62;}
 
-  /* ---------------- contact ---------------- */
-  .contact {
-    border-top: 2px solid var(--ink);
-    padding-top: 32px;
-  }
+.chip{
+  width:34px;height:34px;border-radius:10px;
+  background:var(--c);opacity:.14;
+  margin-bottom:15px;
+}
 
-  .contact-list {
-    list-style: none;
-    margin: 0 0 8px;
-    padding: 0;
-  }
-  .contact-list li { margin-bottom: 14px; }
+/* --- how I work --- */
+.principles{display:grid;gap:14px;}
+.pr{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  background:var(--card);border:1px solid var(--hair);
+  border-radius:16px;padding:22px 24px;
+}
+.pr .icon{
+  width:40px;height:40px;border-radius:12px;flex:none;
+  display:grid;place-items:center;
+  background:var(--c);
+  color:#fff;font-family:var(--mono);font-weight:700;font-size:15px;
+}
+.pr h3{font-family:var(--sans);font-size:16.5px;font-weight:700;margin:2px 0 6px;}
+.pr p{margin:0;font-size:15px;color:var(--slate);line-height:1.62;}
 
-  .label {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--mute);
-    display: block;
-    margin-bottom: 2px;
-  }
+/* --- contact --- */
+.contact{
+  position:relative;overflow:hidden;
+  border-radius:24px;
+  background:
+    radial-gradient(700px 320px at 8% 0%, rgba(46,196,182,.34), transparent 60%),
+    radial-gradient(560px 300px at 96% 100%, rgba(255,138,61,.28), transparent 62%),
+    linear-gradient(150deg,var(--deep),var(--harbour));
+  color:#fff;
+  padding:46px 40px 44px;
+  margin:26px 0 0;
+}
+.contact h2{margin-bottom:12px;color:#fff;}
+.contact .eyebrow{color:var(--glow);}
+.contact .eyebrow::before{background:linear-gradient(90deg,var(--glow),var(--sun));}
+.contact p.sub{color:rgba(255,255,255,.78);max-width:42ch;margin:0 0 30px;font-size:16.5px;}
 
-  .contact-list a,
-  .contact-list span.val {
-    font-size: 17px;
-    color: var(--ink);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .contact-list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.lines{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:32px;}
+.label{
+  font-family:var(--mono);font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--glow);display:block;margin-bottom:5px;
+}
+.val{font-size:17px;font-weight:600;color:#fff;text-decoration:none;}
+a.val:hover{text-decoration:underline;text-underline-offset:4px;}
 
-  footer {
-    border-top: 1px solid var(--hair);
-    margin-top: 56px;
-    padding: 24px 0 60px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--mute);
-  }
+footer{
+  border-top:1px solid var(--hair);
+  margin-top:62px;padding:26px 0 58px;
+  font-family:var(--mono);font-size:12px;color:var(--mute);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+@media (max-width:600px){
+  .contact{padding:36px 26px 34px;border-radius:20px;}
+  h1{margin-top:48px;}
+  .btn{padding:14px 22px;font-size:15px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
 </style>
 </head>
 <body>
 
-<div class="wrap">
+<div class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="mark" href="/"><i></i>brauntech.bz</a>
+      <span class="status"><span class="dot"></span>Taking on new clients</span>
+    </div>
 
-  <header>
-    <a class="mark" href="/"><span class="cursor" aria-hidden="true"></span>brauntech.bz</a>
-
-    <h1>IT that stays working after the person who set it up goes home.</h1>
+    <h1>IT that stays working after the person who set it up <em>goes home.</em></h1>
 
     <p class="lede">
-      I'm Henry Braun. I set up, fix, and look after the technology small businesses in
-      Belize actually run on — networks, computers, point-of-sale, email, and custom software
-      when off-the-shelf won't do.
+      I'm Henry Braun. I set up, fix, and look after the technology small businesses in Belize
+      actually run on — networks, computers, point-of-sale, email, and custom software when
+      off-the-shelf won't do.
     </p>
 
     <div class="actions">
-      <a class="btn" href="tel:+5016153539">Call +501 615-3539</a>
-      <a class="btn ghost" href="https://wa.me/5016153539">WhatsApp</a>
-      <a class="btn ghost" href="mailto:henry@brauntech.bz">Email</a>
+      <a class="btn btn-primary" href="tel:+5016153539">Call +501 615-3539</a>
+      <a class="btn btn-ghost" href="https://wa.me/5016153539">WhatsApp</a>
+      <a class="btn btn-ghost" href="mailto:henry@brauntech.bz">Email</a>
     </div>
 
-    <p class="avail">On-site in Belize City &middot; Remote countrywide &middot; Mon&ndash;Sat</p>
-  </header>
-
-  <main>
-
-    <section>
-      <h2><span class="cursor" aria-hidden="true"></span>What I do</h2>
-      <dl class="spec">
-        <div class="row">
-          <dt>Networks &amp; Wi-Fi</dt>
-          <dd>Wiring, routers, access points, and guest networks that cover the whole building instead of half of it.</dd>
-        </div>
-        <div class="row">
-          <dt>Computer &amp; server support</dt>
-          <dd>Setup, repair, upgrades, and the ongoing maintenance that stops small problems becoming closed-for-the-day problems.</dd>
-        </div>
-        <div class="row">
-          <dt>Point of sale &amp; business systems</dt>
-          <dd>Installing, configuring, and troubleshooting the systems your front counter depends on.</dd>
-        </div>
-        <div class="row">
-          <dt>Backups &amp; security</dt>
-          <dd>Automatic backups you can actually restore from, plus the basics done properly: passwords, updates, access control.</dd>
-        </div>
-        <div class="row">
-          <dt>Business email &amp; accounts</dt>
-          <dd>Email on your own domain, set up so it reaches customers' inboxes rather than their spam folders.</dd>
-        </div>
-        <div class="row">
-          <dt>Custom software &amp; websites</dt>
-          <dd>Built when your business does something specific enough that generic software gets in the way.</dd>
-        </div>
-      </dl>
-    </section>
-
-    <section class="prose">
-      <h2><span class="cursor" aria-hidden="true"></span>How I work</h2>
-      <p>
-        <strong>You get a straight answer first.</strong> Call or message and describe the
-        problem. If it's something you can fix yourself in five minutes, I'll tell you that
-        rather than book a visit.
-      </p>
-      <p>
-        <strong>You know the cost before I start.</strong> Quotes are given up front and in
-        writing. If something unexpected turns up mid-job, work stops and you decide.
-      </p>
-      <p>
-        <strong>You keep the keys.</strong> Passwords, accounts, licences, and domains are
-        registered in your business's name, not mine. If you ever stop working with me, you
-        lose nothing and nothing needs rebuilding.
-      </p>
-    </section>
-
-    <section class="contact" id="contact">
-      <h2><span class="cursor" aria-hidden="true"></span>Get in touch</h2>
-      <ul class="contact-list">
-        <li>
-          <span class="label">Phone &amp; WhatsApp</span>
-          <a href="tel:+5016153539">+501 615-3539</a>
-        </li>
-        <li>
-          <span class="label">Email</span>
-          <a href="mailto:henry@brauntech.bz">henry@brauntech.bz</a>
-        </li>
-        <li>
-          <span class="label">Service area</span>
-          <span class="val">Belize City and surrounding districts</span>
-        </li>
-      </ul>
-    </section>
-
-  </main>
-
-  <footer>
-    &copy; <span id="yr">2026</span> Braun Tech Solutions &middot; Belize City, Belize
-  </footer>
-
+    <p class="avail">On-site in Belize City · Remote countrywide · Mon–Sat</p>
+  </div>
 </div>
 
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
+<svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,34 C240,72 420,4 720,26 C1020,48 1230,72 1440,30 L1440,70 L0,70 Z" fill="#F1FAF8"></path>
+</svg>
 
+<div class="wrap">
+<main>
+
+  <section>
+    <p class="eyebrow">What I do</p>
+    <h2>Six things most businesses here need someone for.</h2>
+
+    <div class="grid">
+      <article class="card" style="--c:#2EC4B6">
+        <div class="chip"></div>
+        <h3>Networks &amp; Wi-Fi</h3>
+        <p>Wiring, routers, access points, and guest networks that cover the whole building instead of half of it.</p>
+      </article>
+
+      <article class="card" style="--c:#0D7377">
+        <div class="chip"></div>
+        <h3>Computer &amp; server support</h3>
+        <p>Setup, repair, upgrades, and the maintenance that stops small problems becoming closed-for-the-day problems.</p>
+      </article>
+
+      <article class="card" style="--c:#FF8A3D">
+        <div class="chip"></div>
+        <h3>Point of sale &amp; business systems</h3>
+        <p>Installing, configuring, and troubleshooting the systems your front counter depends on.</p>
+      </article>
+
+      <article class="card" style="--c:#FFC94A">
+        <div class="chip"></div>
+        <h3>Backups &amp; security</h3>
+        <p>Backups you can actually restore from, plus the basics done properly: passwords, updates, access control.</p>
+      </article>
+
+      <article class="card" style="--c:#FF5D73">
+        <div class="chip"></div>
+        <h3>Business email &amp; accounts</h3>
+        <p>Email on your own domain, set up so it reaches customers' inboxes rather than their spam folders.</p>
+      </article>
+
+      <article class="card" style="--c:#7BE0D3">
+        <div class="chip"></div>
+        <h3>Custom software &amp; websites</h3>
+        <p>Built when your business does something specific enough that generic software gets in the way.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">How I work</p>
+    <h2>Three things you can count on.</h2>
+
+    <div class="principles">
+      <div class="pr" style="--c:#0D7377">
+        <div class="icon">1</div>
+        <div>
+          <h3>You get a straight answer first</h3>
+          <p>Call or message and describe the problem. If it's something you can fix yourself in five minutes, I'll tell you that rather than book a visit.</p>
+        </div>
+      </div>
+
+      <div class="pr" style="--c:#2EC4B6">
+        <div class="icon">2</div>
+        <div>
+          <h3>You know the cost before I start</h3>
+          <p>Quotes are given up front and in writing. If something unexpected turns up mid-job, work stops and you decide.</p>
+        </div>
+      </div>
+
+      <div class="pr" style="--c:#FF8A3D">
+        <div class="icon">3</div>
+        <div>
+          <h3>You keep the keys</h3>
+          <p>Passwords, accounts, licences, and domains are registered in your business's name, not mine. If you ever stop working with me, you lose nothing and nothing needs rebuilding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Tell me what's broken.</h2>
+      <p class="sub">Calls and WhatsApp messages get answered the same day, Monday through Saturday.</p>
+
+      <div class="lines">
+        <div>
+          <span class="label">Phone &amp; WhatsApp</span>
+          <a class="val" href="tel:+5016153539">+501 615-3539</a>
+        </div>
+        <div>
+          <span class="label">Email</span>
+          <a class="val" href="mailto:henry@brauntech.bz">henry@brauntech.bz</a>
+        </div>
+        <div>
+          <span class="label">Service area</span>
+          <span class="val">Belize City &amp; surrounding districts</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:+5016153539">Call now</a>
+        <a class="btn btn-ghost" href="https://wa.me/5016153539">Message on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© <span id="yr">2026</span> Braun Tech Solutions · Belize City, Belize</span>
+  <span>brauntech.bz</span>
+</footer>
+</div>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body>
 </html>
