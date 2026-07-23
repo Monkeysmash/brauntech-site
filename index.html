@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Braun Tech Solutions — IT Consulting &amp; Software Development, Belize City</title>
+<meta name="description" content="IT consulting, networks, and custom software for businesses in Belize. On-site in Belize City, remote countrywide. Call +501 615-3539.">
+<link rel="canonical" href="https://brauntech.bz/">
+
+<meta property="og:title" content="Braun Tech Solutions — IT Consulting &amp; Software Development">
+<meta property="og:description" content="IT consulting, networks, and custom software for businesses in Belize.">
+<meta property="og:url" content="https://brauntech.bz/">
+<meta property="og:type" content="website">
+
+<style>
+  :root {
+    --ink:      #0B2830;
+    --slate:    #39494F;
+    --mute:     #6E7E83;
+    --hair:     #DCE3E2;
+    --paper:    #FBFCFB;
+    --amber:    #B36612;
+    --serif:    Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono:     ui-monospace, "SF Mono", Consolas, Monaco, "Courier New", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  a { color: var(--ink); }
+  a:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+
+  /* ---- the cursor block: the one motif, carried from the email signature ---- */
+  .cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.95em;
+    background: var(--amber);
+    margin-right: 10px;
+    vertical-align: -1px;
+  }
+
+  /* ---------------- header ---------------- */
+  header { padding: 72px 0 0; }
+
+  .mark {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 56px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 6.5vw, 42px);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+  }
+
+  .lede {
+    font-size: clamp(17px, 2.4vw, 19px);
+    color: var(--slate);
+    margin: 0 0 36px;
+    max-width: 34em;
+  }
+
+  /* ---------------- actions ---------------- */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: #FFFFFF;
+    border-radius: 2px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn:hover { background: #143B45; }
+
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--hair);
+  }
+  .btn.ghost:hover { border-color: var(--ink); }
+
+  .avail {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--mute);
+    margin: 0 0 76px;
+  }
+
+  /* ---------------- sections ---------------- */
+  section { padding-bottom: 68px; }
+
+  h2 {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    margin: 0 0 28px;
+  }
+
+  /* services as a typed spec sheet, not icon cards */
+  .spec { border-top: 1px solid var(--hair); }
+
+  .row {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .row dt {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .row dd {
+    margin: 0;
+    font-size: 15.5px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 560px) {
+    .row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+  }
+
+  .prose p {
+    color: var(--slate);
+    font-size: 16.5px;
+    margin: 0 0 18px;
+    max-width: 36em;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--ink); }
+
+  /* ---------------- contact ---------------- */
+  .contact {
+    border-top: 2px solid var(--ink);
+    padding-top: 32px;
+  }
+
+  .contact-list {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0;
+  }
+  .contact-list li { margin-bottom: 14px; }
+
+  .label {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .contact-list a,
+  .contact-list span.val {
+    font-size: 17px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .contact-list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  footer {
+    border-top: 1px solid var(--hair);
+    margin-top: 56px;
+    padding: 24px 0 60px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--mute);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <a class="mark" href="/"><span class="cursor" aria-hidden="true"></span>brauntech.bz</a>
+
+    <h1>IT that stays working after the person who set it up goes home.</h1>
+
+    <p class="lede">
+      I'm Henry Braun. I set up, fix, and look after the technology small businesses in
+      Belize actually run on — networks, computers, point-of-sale, email, and custom software
+      when off-the-shelf won't do.
+    </p>
+
+    <div class="actions">
+      <a class="btn" href="tel:+5016153539">Call +501 615-3539</a>
+      <a class="btn ghost" href="https://wa.me/5016153539">WhatsApp</a>
+      <a class="btn ghost" href="mailto:henry@brauntech.bz">Email</a>
+    </div>
+
+    <p class="avail">On-site in Belize City &middot; Remote countrywide &middot; Mon&ndash;Sat</p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2><span class="cursor" aria-hidden="true"></span>What I do</h2>
+      <dl class="spec">
+        <div class="row">
+          <dt>Networks &amp; Wi-Fi</dt>
+          <dd>Wiring, routers, access points, and guest networks that cover the whole building instead of half of it.</dd>
+        </div>
+        <div class="row">
+          <dt>Computer &amp; server support</dt>
+          <dd>Setup, repair, upgrades, and the ongoing maintenance that stops small problems becoming closed-for-the-day problems.</dd>
+        </div>
+        <div class="row">
+          <dt>Point of sale &amp; business systems</dt>
+          <dd>Installing, configuring, and troubleshooting the systems your front counter depends on.</dd>
+        </div>
+        <div class="row">
+          <dt>Backups &amp; security</dt>
+          <dd>Automatic backups you can actually restore from, plus the basics done properly: passwords, updates, access control.</dd>
+        </div>
+        <div class="row">
+          <dt>Business email &amp; accounts</dt>
+          <dd>Email on your own domain, set up so it reaches customers' inboxes rather than their spam folders.</dd>
+        </div>
+        <div class="row">
+          <dt>Custom software &amp; websites</dt>
+          <dd>Built when your business does something specific enough that generic software gets in the way.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="prose">
+      <h2><span class="cursor" aria-hidden="true"></span>How I work</h2>
+      <p>
+        <strong>You get a straight answer first.</strong> Call or message and describe the
+        problem. If it's something you can fix yourself in five minutes, I'll tell you that
+        rather than book a visit.
+      </p>
+      <p>
+        <strong>You know the cost before I start.</strong> Quotes are given up front and in
+        writing. If something unexpected turns up mid-job, work stops and you decide.
+      </p>
+      <p>
+        <strong>You keep the keys.</strong> Passwords, accounts, licences, and domains are
+        registered in your business's name, not mine. If you ever stop working with me, you
+        lose nothing and nothing needs rebuilding.
+      </p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2><span class="cursor" aria-hidden="true"></span>Get in touch</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="label">Phone &amp; WhatsApp</span>
+          <a href="tel:+5016153539">+501 615-3539</a>
+        </li>
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:henry@brauntech.bz">henry@brauntech.bz</a>
+        </li>
+        <li>
+          <span class="label">Service area</span>
+          <span class="val">Belize City and surrounding districts</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; <span id="yr">2026</span> Braun Tech Solutions &middot; Belize City, Belize
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
